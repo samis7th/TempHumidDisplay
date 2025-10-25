@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Carolina Jeremias",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -12.6, "left": 290.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -47.4, "left": -144.6, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -291.2,
+      "left": 312.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -3.6,
+      "left": 339.8,
+      "attrs": { "color": "yellow" }
+    },
+    { "type": "wokwi-led", "id": "led2", "top": -3.6, "left": 378.2, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 100.8,
+      "left": 335.45,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 100.8,
+      "left": 373.85,
+      "rotate": 90,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -422.1,
+      "left": 81,
+      "attrs": { "temperature": "26.7", "humidity": "0" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:SDA", "uno:A4", "yellow", [ "h-28.8", "v297.8", "h38.4", "v67.3" ] ],
+    [ "uno:A5", "lcd1:SCL", "magenta", [ "v28.7", "h33.1" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-19.2", "v432.1", "h-195.8" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-9.6", "v403.2", "h-195.9" ] ],
+    [ "uno:GND.2", "bb1:bn.1", "black", [ "v0" ] ],
+    [ "uno:5V", "bb1:bp.1", "red", [ "v47.9", "h195.8", "v-19.2" ] ],
+    [ "bb1:5t.e", "bb1:bn.4", "green", [ "v0" ] ],
+    [ "bb1:9t.e", "bb1:bn.7", "green", [ "v0" ] ],
+    [ "bb1:10b.j", "uno:4", "orange", [ "v19.2", "h9.6", "v48", "h259.2", "v-307.2", "h-528" ] ],
+    [ "bb1:6b.j", "uno:3", "gold", [ "v76.8", "h326.4", "v-307.2", "h-528" ] ],
+    [ "dht1:GND", "lcd1:GND", "black", [ "v0" ] ],
+    [ "dht1:VCC", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "dht1:SDA", "uno:2", "green", [ "v0" ] ],
+    [ "dht1:NC", "uno:8", "green", [ "v172.8", "h-86.7" ] ],
+    [ "r1:1", "bb1:6t.e", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:6b.i", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:10t.e", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:10b.i", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:6t.a", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:5t.a", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:10t.a", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:9t.a", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
